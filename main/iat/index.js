@@ -64,6 +64,7 @@
   }
 
   function changeBtnStatus(status) {
+
     btnStatus = status;
     if (status === "CONNECTING") {
       tip.innerText = "建立连接中";
@@ -75,7 +76,7 @@
     } else if (status === "CLOSING") {
       tip.innerText = "关闭连接中";
     } else if (status === "CLOSED") {
-      tip.innerText = "长按开始录音";
+      tip.innerText = "点击开始和数字人对话";
     }
   }
 
@@ -138,7 +139,7 @@
           language: "zh_cn",
           domain: "iat",
           accent: "mandarin",
-          vad_eos: 5000,
+          vad_eos: 2000,
           dwa: "wpgs",
         },
         data: {
@@ -197,7 +198,7 @@
   // };
   // touchstart mousedown
   recordImg.addEventListener("touchstart", function (e) {
-    console.log(1111);
+
     e.preventDefault()
     if (btnStatus === "UNDEFINED" || btnStatus === "CLOSED") {
       connectWebSocket();
@@ -206,15 +207,15 @@
     }
   })
   // touchend mouseup
-  recordImg.addEventListener("touchend ", function (e) {
-    e.preventDefault()
-    recorder.stop();
-  })
-  // touchcancel mouseleave
-  recordImg.addEventListener("touchcancel", function (e) {
-    e.preventDefault()
-    recorder.stop();
-  })
+  // recordImg.addEventListener("touchend ", function (e) {
+  //   e.preventDefault()
+  //   recorder.stop();
+  // })
+  // // touchcancel mouseleave
+  // recordImg.addEventListener("touchcancel", function (e) {
+  //   e.preventDefault()
+  //   recorder.stop();
+  // })
 
 
 
